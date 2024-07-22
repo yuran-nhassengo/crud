@@ -19,7 +19,12 @@ const createUser = async (req,res) =>{
 
 const fetch = async (req,res) => {
     try{
-       return  res.json("Hello World");
+        const users = await User.find();
+        if(users.length === 0){
+            return res.status(404).json({message:"Users not found"});
+        }
+
+        res.status(200).json(users);
     }catch (error) {
         res.status(500).json({error: "Internal Server error."});
     }

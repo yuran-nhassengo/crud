@@ -4,7 +4,7 @@ const {fetch,createUser} = require("../controller/userController");
 const route = express.Router();
 
 
-route.get("/fetch",fetch);
+route.get("/getAllUsers",fetch);
 
 route.post("/create",createUser)
 
